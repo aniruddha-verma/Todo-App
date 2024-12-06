@@ -1,26 +1,67 @@
-const inp = document.querySelector("input");
-const btn = document.querySelector("button");
+const taskInput = document.querySelector("#taskInput");
+const timeInput = document.querySelector("#timeInput");
+const addBtn = document.querySelector("#addTask");
+const deleteAllBtn = document.querySelector("#deleteAll");
 const ul = document.querySelector("ul");
+const noTasksMessage = document.querySelector("#noTasks");
 
-btn.addEventListener("click", function () {
+
+// Function to toggle "No tasks" message visibility
+function toggleNoTasksMessage() {
+    if (ul.children.length === 0) {
+        noTasksMessage.classList.remove("hidden");
+    } else {
+        noTasksMessage.classList.add("hidden");
+    }
+}
+
+// Add new task with timing
+addBtn.addEventListener("click", function () {
+    const taskText = taskInput.value.trim();
+    const taskTime = timeInput.value;
+
+    if (taskText === "" || taskTime === "") {
+        alert("Please enter both task and time.");
+        return;
+    }
+
     let newTask = document.createElement("li");
-    newTask.innerText = inp.value;
+    newTask.innerHTML = `
+        ${taskText}
+        <span class="time">[${taskTime}]</span>
+    `;
 
     let delBtn = document.createElement("button");
     delBtn.innerText = "delete";
-    delBtn.classList.add = "delete";
+    delBtn.classList.add("delete");
 
     newTask.appendChild(delBtn);
     ul.appendChild(newTask);
-    inp.value = "";
+
+    // Clear inputs
+    taskInput.value = "";
+    timeInput.value = "";
+
+    toggleNoTasksMessage();
 });
 
-ul.addEventListener("click", function(event) {          // Event Delegation through Event Bubbling
-    if (event.target.nodeName == "BUTTON") {
+// Delete a single task
+ul.addEventListener("click", function (event) {
+    if (event.target.nodeName === "BUTTON") {
         let listItem = event.target.parentElement;
         listItem.remove();
+        toggleNoTasksMessage();
     }
 });
+
+// Delete all tasks
+deleteAllBtn.addEventListener("click", function () {
+    ul.innerHTML = ""; // Clear all tasks
+    toggleNoTasksMessage();
+});
+
+// Show "No tasks" message initially
+toggleNoTasksMessage();
 
 /* 
 let delBtns = document.querySelectorAll(".delete");   

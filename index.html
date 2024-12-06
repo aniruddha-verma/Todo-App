@@ -7,14 +7,21 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>ToDo App</h1>
-    <input placeholder="enter new task">
-    <button>Add Task</button>
-    <ul>
-        <li>Eat <button class="delete">delete</button></li>
-        <li>Code <button class="delete">delete</button></li>
-        <li>Sleep <button class="delete">delete</button></li>
-    </ul>
+    <div class="mainHeading">
+        <h1>To Do List</h1>
+    </div>
+    <div class="placeholder">
+        <input id="taskInput" placeholder="Enter New Task!">
+        <input id="timeInput" type="time">
+    </div>
+    <div class="todos">
+        <p id="noTasks" class="hidden">To Do List is Empty, You have completed all tasks!</p>
+        <ul></ul>
+    </div>
+    <div class="buttons">
+        <button id="addTask">Add Task</button>
+        <button id="deleteAll">Delete All</button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

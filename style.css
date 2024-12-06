@@ -1,3 +1,179 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
 body {
-    background-color: blanchedalmond;
+    background-color: #f5f7fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Main Heading */
+.mainHeading {
+    margin-bottom: 20px;
+}
+
+.mainHeading h1 {
+    font-size: 2.5rem;
+    color: #4CAF50;
+}
+
+/* Input Placeholder Styling */
+.placeholder {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.placeholder input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.placeholder input:focus {
+    border-color: #81C784;
+}
+
+/* Task Timing Styling */
+.todos li .time {
+    font-size: 0.9rem;
+    color: #555;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+/* Button Styling */
+.buttons {
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #388E3C;
+}
+
+/* Todos Section */
+.todos {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.todos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.todos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.todos li:last-child {
+    border-bottom: none;
+}
+
+/* Delete Button */
+.todos .delete {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.todos .delete:hover {
+    background-color: #d32f2f;
+}
+
+/* New button styling */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#deleteAll {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#deleteAll:hover {
+    background-color: #d32f2f;
+}
+
+/* "No tasks" message */
+#noTasks {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .mainHeading h1 {
+        font-size: 2rem;
+    }
+
+    .placeholder input,
+    .buttons button {
+        font-size: 0.9rem;
+    }
+
+    .todos li {
+        font-size: 0.9rem;
+    }
+
+    .todos .delete {
+        font-size: 0.8rem;
+    }
 }
